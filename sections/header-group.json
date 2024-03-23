@@ -5,11 +5,13 @@
     "announcement": {
       "type": "announcementbar",
       "settings": {
+        "message": "25% OFF for US based delivery!"
       }
     },
     "header": {
       "type": "header",
       "settings": {
+        "menu": "main-menu"
       }
     }
   },
