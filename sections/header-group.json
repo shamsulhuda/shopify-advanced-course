@@ -5,6 +5,7 @@
     "announcement": {
       "type": "announcementbar",
       "settings": {
+        "message": "FREE Delivery for California!"
       }
     },
     "header": {
