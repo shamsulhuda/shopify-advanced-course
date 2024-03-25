@@ -11,3 +11,21 @@ p.announce-text.text-center {
 .announcementbar {
   background: #DDDDDD;
 }
+
+/* image-banner */
+.banner-container{
+  position: relative;
+}
+.banner-content {
+  position: absolute;
+  bottom: 100px;
+}
+.card-body svg, .card-body img {
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 600px){
+  .image-banner-main img {
+    width: 100%;
+  }
+}
