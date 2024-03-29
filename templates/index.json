@@ -1,11 +1,62 @@
 {
-    "sections": {
-        "image_banner": {
-            "type": "image-banner",
-            "settings": {}
-        }
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "content_width": 60,
+        "heading": "Our Best collection",
+        "sub_heading": "",
+        "label_1": "Buy Now",
+        "url_1": ""
+      }
     },
-    "order":[
-        "image_banner"
-    ]
+    "featured_collection_gr3yiP": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Featured collection",
+        "sub_heading": "",
+        "collection": ""
+      }
+    },
+    "multicolumn_b8EcmJ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_kUjCmy": {
+          "type": "column",
+          "settings": {
+            "title": "Column title",
+            "rte": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum officia repellendus cumque quo ullam temporibus animi sapiente, minus, dolores pariatur tempora amet explicabo quas at fugiat quidem quae consequatur est?<\/p>"
+          }
+        },
+        "column_NAxpda": {
+          "type": "column",
+          "settings": {
+            "title": "Column title",
+            "rte": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum officia repellendus cumque quo ullam temporibus animi sapiente, minus, dolores pariatur tempora amet explicabo quas at fugiat quidem quae consequatur est?<\/p>"
+          }
+        },
+        "column_JyGVjU": {
+          "type": "column",
+          "settings": {
+            "title": "Column title",
+            "rte": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum officia repellendus cumque quo ullam temporibus animi sapiente, minus, dolores pariatur tempora amet explicabo quas at fugiat quidem quae consequatur est?<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_kUjCmy",
+        "column_NAxpda",
+        "column_JyGVjU"
+      ],
+      "settings": {
+        "heading": "Multicolumn",
+        "sub_heading": ""
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection_gr3yiP",
+    "multicolumn_b8EcmJ"
+  ]
 }
