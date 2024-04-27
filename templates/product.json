@@ -24,16 +24,16 @@
           "settings": {
           }
         },
+        "variants": {
+          "type": "variants",
+          "settings": {
+            "variant_type": "pills"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "enable_dynamic_button": true
-          }
-        },
-        "variants_9iDCTd": {
-          "type": "variants",
-          "settings": {
-            "variant_type": "pills"
           }
         }
       },
@@ -41,9 +41,9 @@
         "vendor",
         "title",
         "price",
+        "variants",
         "quantity_selector",
-        "buy_buttons",
-        "variants_9iDCTd"
+        "buy_buttons"
       ],
       "settings": {
       }
