@@ -1,0 +1,18 @@
+<div class="product_variants">
+    <div class="product-options my-4">
+        {% for option in product.options_with_values %}
+            <strong>{{ option.name }}</strong> <br>
+            {% for value in option.values %}
+                <input type="radio" id="{{ value.name |  downcase | replace: ' ','_'}}" name="{{ option.name |  downcase | replace: ' ','_' }}" value="{{ value.name }}">
+                <label for="{{ value.name |  downcase | replace: ' ','_' }}">{{ value.name }}</label>
+            {% endfor %}
+            <br>
+        {% endfor %}
+    </div>
+
+    <select name="id" class="variants">
+        {% for variant in product.variants %}
+            <option value="{{ variant.id }}">{{ variant.title }}</option>
+        {% endfor %}
+    </select>
+</div>
