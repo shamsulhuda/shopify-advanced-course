@@ -1,19 +1,20 @@
 <div class="product_variants">
+    {% unless product.has_only_default_variant %}
     <div class="product-options my-4">
         {% for option in product.options_with_values %}
             <strong>{{ option.name }}</strong> <br>
             {% if variants_type == 'pills' %}
             {% for value in option.values %}
                 <label class="variant-pill">
-                    <input type="radio" id="{{ value.name |  downcase | replace: ' ','_'}}" name="{{ option.name |  downcase | replace: ' ','_' }}" value="{{ value.name }}">
-                    <span class="variant-button">{{ value.name }}</span>
+            <input type="radio" id="{{ value.name |  downcase | replace: ' ','_'}}" name="{{ option.name |  downcase | replace: ' ','_' }}" value="{{ value.name }}"{% if option.selected_value == value %} checked{% endif %}>
+                <span class="variant-button">{{ value.name }}</span>
                 </label>
             {% endfor %}
             {% else %}
                 <div class="variant-selector">
                     <select class="variant_select form-control w-50">
                         {% for value in option.values %}
-                            <option value="{{ value.name }}">{{ value.name }}</option>
+                        <option value="{{ value.name }}"{% if option.selected_value == value %} selected{% endif %}>{{ value.name }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -24,7 +25,8 @@
 
     <select name="id" class="variants">
         {% for variant in product.variants %}
-            <option value="{{ variant.id }}">{{ variant.title }}</option>
+            <option value="{{ variant.id }}" data-img="{{ variant.image }}">{{ variant.title }}</option>
         {% endfor %}
     </select>
+    {% endunless %}
 </div>

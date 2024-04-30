@@ -1,4 +1,5 @@
 {{ 'product-template.css' |  asset_url |  stylesheet_tag }}
+{{ 'product-variant.js' |  asset_url | script_tag }}
 
 <div class="product-template-{{ section.id  }}">
     <div class="product-main">
@@ -44,7 +45,7 @@
                                         </div>
                                     {% when 'variants' %}
                                         {% assign variants_type = block.settings.variant_type %}
-                                        {%  render 'variants', product: product, variants_type: variants_type %}
+                                        {%  render 'variants', product: product, variants_type: variants_type, block: block %}
                                     {% when 'buy_buttons' %}
 
                                         <div class="cart-buttons my-4" {{ block.shopify_attributes }}>
