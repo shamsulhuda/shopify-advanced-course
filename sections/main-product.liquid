@@ -22,24 +22,24 @@
                                     {% when '@app' %}
                                         {% render block %}
                                     {% when 'text' %}
-                                        <p>{{ block.settings.text }}</p>
+                                        <p {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
                                     {% when 'title' %}
-                                        <h1 class="product-title">{{ product.title }}</h1>
+                                        <h1 class="product-title" {{ block.shopify_attributes }}>{{ product.title }}</h1>
 
                                     {% when 'price' %}
-                                        <div class="product-price">
+                                        <div class="product-price" {{ block.shopify_attributes }}>
                                             <p>{{ product.price |  money_with_currency }}</p>
                                         </div>
                                     {% when 'sku' %}
-                                        <div class="product-sku">
+                                        <div class="product-sku" {{ block.shopify_attributes }}>
                                             <p>{{ product.sku }}</p>
                                         </div>
 
                                     {% when 'description' %}
-                                        <div class="rte">{{ product.description }}</div>
+                                        <div class="rte" {{ block.shopify_attributes }}>{{ product.description }}</div>
 
                                     {% when 'quantity' %}
-                                        <div class="product-quantity">
+                                        <div class="product-quantity" {{ block.shopify_attributes }}>
                                             <input type="number" name="quantity" value="1" min="1">
                                         </div>
                                     {% when 'variants' %}
@@ -47,7 +47,7 @@
                                         {%  render 'variants', product: product, variants_type: variants_type %}
                                     {% when 'buy_buttons' %}
 
-                                        <div class="cart-buttons my-4">
+                                        <div class="cart-buttons my-4" {{ block.shopify_attributes }}>
                                             <button type="submit" class="btn btn-primary mb-2 w-100" name="add">Add to cart</button>
                                             {% if block.settings.enable_dynamic_button %}
                                                 {{ form |  payment_button }}
