@@ -16,7 +16,7 @@
                         {% assign form_id = 'product-form-' | append: section.id %}
                         {% form 'product', product, id: form_id, class: 'product-form' %}
                             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                            {{ form |  payment_terms }}
+                            
                             {% for block in section.blocks %}
                                 {% case block.type %}
                                     {% when '@app' %}
