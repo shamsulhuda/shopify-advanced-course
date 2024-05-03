@@ -11,6 +11,7 @@ $(document).ready(function(){
                 data: formData,
                 success: function(data){
                     console.log('data:', data);
+                    $('#offcanvasRight').offcanvas('show');
                 },
                 error: 'Add to cart error!'
             })

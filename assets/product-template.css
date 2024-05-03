@@ -25,3 +25,11 @@
     background-color: #000000;
     color: #FFFFFF;
 }
+.variant-pill .variant-button.swatch{
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+}
+.variant-pill input[type="radio"]:checked + .variant-button.swatch {
+    border: 2px solid #198754;
+}
