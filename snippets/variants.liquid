@@ -25,7 +25,7 @@
 
     <select name="id" class="variants">
         {% for variant in product.variants %}
-            <option value="{{ variant.id }}" data-img="{{ variant.image }}">{{ variant.title }}</option>
+            <option value="{{ variant.id }}" data-img="{{ variant.image }}" data-available="{{ variant.available }}">{{ variant.title }}</option>
         {% endfor %}
     </select>
     {% endunless %}

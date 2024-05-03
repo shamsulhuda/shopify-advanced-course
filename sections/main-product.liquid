@@ -1,5 +1,6 @@
 {{ 'product-template.css' |  asset_url |  stylesheet_tag }}
 {{ 'product-variant.js' |  asset_url | script_tag }}
+{{ 'product-form.js' |  asset_url | script_tag }}
 
 <div class="product-template-{{ section.id  }}">
     <div class="product-main">
@@ -16,7 +17,7 @@
                     <div class="product-informations">
                         {% assign form_id = 'product-form-' | append: section.id %}
                         {% form 'product', product, id: form_id, class: 'product-form' %}
-                            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                            {% comment %} <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}"> {% endcomment %}
                             {{ form |  payment_terms }}
                             {% for block in section.blocks %}
                                 {% case block.type %}
