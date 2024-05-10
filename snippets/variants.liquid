@@ -43,7 +43,7 @@
         {% endfor %}
     </div>
 
-    <select name="id" class="variants">
+    <select name="id" class="variants d-none">
         {% for variant in product.variants %}
             <option value="{{ variant.id }}" data-img="{{ variant.image.src }}" data-available="{{ variant.available }}">{{ variant.title }}</option>
         {% endfor %}

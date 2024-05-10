@@ -24,6 +24,19 @@ p.announce-text.text-center {
   width: 100%;
   height: auto;
 }
+/* drawer-cart */
+.offcanvas-footer {
+  padding: 1rem;
+}
+.item-quantity input{
+  text-align: center;
+}
+.qty_selector {
+  padding: 0 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
 @media (min-width: 600px){
   .image-banner-main img {
     width: 100%;

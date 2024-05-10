@@ -47,9 +47,15 @@
       ],
       "settings": {
       }
+    },
+    "recommended-product": {
+      "type": "recommended-products",
+      "settings": {
+      }
     }
   },
   "order": [
-    "main-product"
+    "main-product",
+    "recommended-product"
   ]
 }
