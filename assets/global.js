@@ -58,6 +58,7 @@ function changeQuantity($input){
   })
 }
 
+
 function itemRemove(e,el){
     e.preventDefault();
     var line = $(el).attr('data-line');
