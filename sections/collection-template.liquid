@@ -1,0 +1,36 @@
+{{ 'collection-filter.js' | asset_url | script_tag }}
+<div class="collection-template-section">
+    <div class="collection-template">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    Sidebar
+                </div>
+                <div class="col-md-9">
+                    <div class="row justify-content-between">
+                        <div class="col">
+                            <p>Products: {{ collection.products_count }}</p>
+                        </div>
+                        <div class="col text-right">
+                            <div class="product-sorting">
+                                <select id="sort-by">
+                                    {% assign sort_by = collection.sort_by |  default: collection.default_sort_by %}
+                                    {% for option in collection.sort_options %}
+                                        <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collection-products">
+                        <div class="row">
+                            {% for product in collection.products %}
+                                {% render 'card-product', product: product %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
