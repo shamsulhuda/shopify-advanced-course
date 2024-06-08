@@ -36,6 +36,13 @@ p.announce-text.text-center {
   border: 1px solid #000;
   cursor: pointer;
 }
+/* predictive search */
+div#predictive-search {
+  position: absolute;
+  background: #ffffff;
+  padding: 20px;
+  width: 700px;
+}
 
 @media (min-width: 600px){
   .image-banner-main img {

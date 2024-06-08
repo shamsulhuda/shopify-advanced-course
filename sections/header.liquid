@@ -26,10 +26,11 @@
                 </li>
                 {% endfor %}
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <span class="my-2 mx-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+            </span>         
             <div class="header-cart-count mx-2">
                 <a href="{% if settings.cart_type == 'drawer' %}#offcanvasRight{% else %}{{ routes.cart_url }}{% endif %}" class="cart_link"{% if settings.cart_type == 'drawer' %} type="button" data-bs-toggle="offcanvas" aria-controls="offcanvasRight"{% endif %}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
@@ -44,7 +45,36 @@
             </div>
             </div>
         </div>
-        </nav>
+    </nav>
+</div>
+
+{% comment %} Searchbox {% endcomment %}
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+    <div class="offcanvas-header">
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <predictive-search>
+                <form action="{{ routes.search_url }}" method="get" role="search">
+                    <input type="search"
+                    name="q"
+                    id="Search"
+                    value="{{ search.terms | escape }}"
+                    area-expanded="false"
+                    area-owns="predictive-search-results"
+                    area-controls="predictive-search-results"
+                    placeholder="Search"
+                    class="form-control">
+                    <input type="hidden" name="options[prefix]" value="last">
+                    <div id="predictive-search" tabindex="-1"></div>
+                </form>
+            </predictive-search>
+        </div>
+        
+    </div>
+  </div>
 </div>
 
 {% schema %}
