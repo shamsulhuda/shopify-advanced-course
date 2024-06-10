@@ -50,26 +50,26 @@
 
 {% comment %} Searchbox {% endcomment %}
 <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-    <div class="offcanvas-header">
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
   <div class="offcanvas-body">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <predictive-search>
                 <form action="{{ routes.search_url }}" method="get" role="search">
-                    <input type="search"
-                    name="q"
-                    id="Search"
-                    value="{{ search.terms | escape }}"
-                    area-expanded="false"
-                    area-owns="predictive-search-results"
-                    area-controls="predictive-search-results"
-                    placeholder="Search"
-                    class="form-control">
+                    <div class="form-field d-flex align-items-center">
+                        <input type="search"
+                            name="q"
+                            id="Search"
+                            value="{{ search.terms | escape }}"
+                            area-expanded="false"
+                            area-owns="predictive-search-results"
+                            area-controls="predictive-search-results"
+                            placeholder="Search"
+                            class="form-control">
+                        <button type="button" class="btn-close text-reset mx-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
                     <input type="hidden" name="options[prefix]" value="last">
-                    <div id="predictive-search" tabindex="-1"></div>
                 </form>
+                <div id="predictive-search" tabindex="-1"></div>
             </predictive-search>
         </div>
         

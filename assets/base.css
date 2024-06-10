@@ -41,7 +41,7 @@ div#predictive-search {
   position: absolute;
   background: #ffffff;
   padding: 20px;
-  width: 700px;
+  width: 620px;
 }
 
 @media (min-width: 600px){
