@@ -1,34 +1,30 @@
 {% style %}
-.subfooter-{{section.id}} {
-    Background: {{ section.settings.bg_color }};
-    padding: 30px 0 30px 0;
-}
+    .sub-footer{
+        background: {{ section.settings.bg_color }};
+    }
 {% endstyle %}
-<div class="sub-footer subfooter-{{section.id}}">
-    <div class="{% if section.settings.enable_full_width %}full-width px-4{% else %}container{% endif %}">
-        <div class="email-subcription my-5">
-            <div class="row justify-content-center">
-                <div class="col-md-5 text-center">
-                    <h3>{{ section.settings.title }}</h3>
-                    {% if section.settings.subtext != blank %}
-                        <div class="rte my-4">
-                            {{ section.settings.subtext }}
-                        </div>                        
-                    {% endif %}
-                    {% form 'customer', id: 'newsletterForm' %}
-                        <input type="hidden" name="contact[tags]" value="newsletter">
-                        <div class="form-group{% unless section.settings.subtext != blank %} my-4{% endunless %}">
-                            <div class="input-group mb-2">
-                                <input type="email" class="form-control" name="contact[email]" id="Subemail" placeholder="Email" required>
-                                <div class="input-group-prepend">
-                                    <button type="submit" class="input-group-text btn btn-dark">Subscribe</button>
-                                </div>
-                            </div>
+
+<div class="sub-footer py-4">
+    <div class="sub-footer-main container my-4">
+        <div class="row justify-content-center">
+            <div class="col-md-5 text-center">
+                <h3 class="mb-4">{{ section.settings.title }}</h3>
+                {% if section.settings.rte != blank %}
+                <div class="rte mb-3">
+                    {{ section.settings.rte }}
+                </div>
+                {% endif %}
+                {% form 'customer', id:'newsletterForm' %}
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+                    <div class="input-group">
+                        <input type="email" name="contact[email]" class="form-control" placeholder="Email" required>
+                        <div class="input-group-append">
+                            <button type="submit" class="input-group-text btn btn-dark">Subscribe</button>
                         </div>
-                    {% endform %}
-                    <div id="successMessage" class="my-2" style="display: none;">
-                        <p>Successfully Subscribed!</p>
                     </div>
+                {% endform %}
+                <div id="successMessage" style="display: none;">
+                    <p class="text-success">Successfully subscribed!</p>
                 </div>
             </div>
         </div>
@@ -37,26 +33,23 @@
 
 <script>
     $(document).ready(function(){
-    $('#newsletterForm').on('submit', function(event){
-        event.preventDefault(); // Prevent the default form submission
-        
-        var form = $(this);
-        
-        $.ajax({
-            type: 'POST',
-            url: form.attr('action'),
-            data: form.serialize(),
-            success: function() {
-                $('#successMessage').show();
-                form.trigger('reset'); // Reset the form fields
-            },
-            error: function() {
-                alert('There was an error processing your request. Please try again.');
-            }
-        });
-    });
-});
-
+        $('#newsletterForm').on('submit', function(event){
+            event.preventDefault();
+            var form = $(this);
+            $.ajax({
+                type: 'POST',
+                url: form.attr('action'),
+                data: form.serialize(),
+                success: function(){
+                    $('#successMessage').show();
+                    form.trigger('reset');
+                },
+                error: function(){
+                    alert("Something is wrong, please try again!");
+                }
+            })
+        })
+    })
 </script>
 
 {% schema %}
@@ -64,25 +57,15 @@
     "name": "Sub footer",
     "settings": [
         {
-            "type": "checkbox",
-            "id": "enable_full_width",
-            "label": "Full width",
-            "default": true
-        },
-        {
             "type": "text",
             "id": "title",
-            "label": "Title",
+            "label": "Heading",
             "default": "Subscribe to our emails"
         },
         {
             "type": "richtext",
-            "id": "subtext",
-            "label": "Sub text"
-        },
-        {
-            "type": "header",
-            "content": "Style"
+            "id": "rte",
+            "label": "Text"
         },
         {
             "type": "color",
