@@ -12,11 +12,12 @@
     "image_banner": {
       "type": "image-banner",
       "settings": {
-        "content_width": 60,
+        "image": "shopify:\/\/shop_images\/banner.jpg",
+        "content_width": 50,
         "heading": "Our Best collection",
-        "sub_heading": "",
+        "sub_heading": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.<\/p>",
         "label_1": "Buy Now",
-        "url_1": ""
+        "url_1": "#"
       }
     },
     "featured_collection_gr3yiP": {
@@ -24,7 +25,7 @@
       "settings": {
         "heading": "Featured collection",
         "sub_heading": "",
-        "collection": ""
+        "collection": "best-selling"
       }
     },
     "multicolumn_b8EcmJ": {
