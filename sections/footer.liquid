@@ -11,8 +11,8 @@
     assign col = 'col'
    endif
 %}
-{% if section.blocks.size > 0 %}
 <div class="footer-section">
+    {% if section.blocks.size > 0 %}
     <div class="footer-main pt-5 pb-3">
         <div class="container">
             <div class="row">
@@ -76,13 +76,13 @@
             </div>
         </div>
     </div>
+    {% endif %}
     <div class="footer-bottom py-3">
        <div class="d-flex justify-content-center align-items-center">
         <p class="m-0">{{ section.settings.copyright }}</p>
        </div>
     </div>
 </div>
-{% endif %}
 
 {% schema %}
 {

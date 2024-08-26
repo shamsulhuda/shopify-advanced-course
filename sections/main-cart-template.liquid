@@ -1,5 +1,61 @@
 <div class="cart-section">
-    Your cart 
+    <div class="container">
+        {% unless cart.empty? %}
+            <div class="main-cart">
+                {% form 'cart', cart %} 
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>                        
+                    </thead>
+                    <tbody>
+                        {% for line_item in cart.items %}
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="item-image pe-2">
+                                            {{ line_item.image |  image_url: width: 100 |  image_tag }}
+                                        </div>
+                                        <a href="{{ line_item.url }}">{{ line_item.product.title }}</a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="line-price">{{ line_item.original_price |  money }}</span>
+                                </td>
+                                <td>
+                                    <div class="line-qty">
+                                        <div class="d-flex">
+                                            <span class="qty-minus">-</span>
+                                            <input type="number" name="quantity" class="form-control text-center w-50" value="{{ line_item.quantity }}">
+                                            <span class="qty-plus">+</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="total-line-price">
+                                        <span class="price">{{ line_item.original_line_price | money }}</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="cart-footer">
+                    --------
+                </div>
+                {% endform %}
+            </div>
+        {% else %}
+            <div class="no-items text-center py-5">
+                <p class="h2">Your cart is empty!</p>
+                <a href="{{ routes.all_products_collection_url }}" class="btn btn-secondary my-4">Shop Now</a>
+            </div>
+        {% endunless %}
+    </div>
 </div>
 
 {% schema %}

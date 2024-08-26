@@ -50,3 +50,17 @@ div#predictive-search {
   }
 }
 
+/* Mega-menu */
+
+.mega-submenu {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  top: auto;
+  right: 0;
+  background: #ffffff;
+}
+.mega-menu-items:hover + .mega-submenu, .mega-submenu:hover {
+  display: block;
+}

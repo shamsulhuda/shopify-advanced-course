@@ -15,13 +15,39 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 {% for link in section.settings.menu.links %}
                 <li class="nav-item{% if link.links.size > 0 %} dropdown{% endif %}">
-                    <a class="nav-link{% if link.links.size > 0 %} dropdown-toggle mega-menu-items{% endif %}" aria-current="page" href="{{ link.url }}"{% if link.links.size > 0 %} data-bs-toggle="dropdown" aria-expanded="false"{% endif %}>{{ link.title }}</a>
-                       
-                    <ul class="dropdown-menu">
-                        {% for child in link.links %}
-                            <li><a class="dropdown-item" href="{{ child.url }}">{{ child.title }}</a></li>
-                        {% endfor %}
-                    </ul>
+                    <a class="nav-link{% if link.links.size > 0 %} dropdown-toggle{% if section.settings.mega_menu %} mega-menu-items{% endif %}{% endif %}" aria-current="page" href="{{ link.url }}"{% if link.links.size > 0 %} data-bs-toggle="dropdown" aria-expanded="false"{% endif %}>{{ link.title }}</a>  
+                    {% if link.links.size > 0 %}
+                        {% if section.settings.mega_menu %}
+                        <div class="mega-submenu">
+                            <div class="container mega-inner py-4">
+                                <div class="row">
+                                    {% for child in link.links %}
+                                        <div class="col-md-3">
+                                            <h4 class="mega-heading">
+                                                <a href="{{ child.url }}" class="nav-link">{{ child.title }}</a>
+                                                {% if child.links.size > 0 %}
+                                                    <ul>
+                                                        {% for grandChild in child.links %}
+                                                            <li>
+                                                                <a href="{{ grandChild.url }}">{{ grandChild.title }}</a>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+                                            </h4>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <ul class="dropdown-menu">
+                            {% for child in link.links %}
+                                <li><a class="dropdown-item" href="{{ child.url }}">{{ child.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    {% endif %}                     
                 </li>
                 {% endfor %}
             </ul>
@@ -94,6 +120,12 @@
             "type": "link_list",
             "id": "menu",
             "label": "Menu"
+        },
+        {
+            "type": "checkbox",
+            "id": "mega_menu",
+            "label": "Enable Mega menu",
+            "default": false
         }
     ]
 }
