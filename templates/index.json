@@ -12,7 +12,6 @@
     "image_banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/two-people-share-a-kiss-in-the-kitchen-cooking.jpg",
         "content_width": 60,
         "heading": "Our Best collection",
         "sub_heading": "",

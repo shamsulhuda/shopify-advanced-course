@@ -47,6 +47,7 @@ div#predictive-search {
 @media (min-width: 600px){
   .image-banner-main img {
     width: 100%;
+    height: auto;
   }
 }
 
