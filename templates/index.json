@@ -12,12 +12,11 @@
     "image_banner": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/banner.jpg",
-        "content_width": 50,
+        "content_width": 60,
         "heading": "Our Best collection",
-        "sub_heading": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.<\/p>",
+        "sub_heading": "",
         "label_1": "Buy Now",
-        "url_1": "#"
+        "url_1": ""
       }
     },
     "featured_collection_gr3yiP": {
