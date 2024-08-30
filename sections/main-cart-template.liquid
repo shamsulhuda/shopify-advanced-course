@@ -22,8 +22,8 @@
                                         </div>
                                         <div class="info">
                                           <a href="{{ line_item.url }}">{{ line_item.product.title }}</a>
-                                          {% unless item.properties == empty %}
-                                            {% for property in item.properties %}
+                                          {% unless line_item.properties == empty %}
+                                            {% for property in line_item.properties %}
                                               {{ property.first }}:
                                         
                                               {% if property.last contains '/uploads/' %}
