@@ -18,7 +18,6 @@ p.announce-text.text-center {
 }
 .banner-content {
   position: absolute;
-  bottom: 260px;
 }
 .card-body svg, .card-body img {
   width: 100%;
@@ -42,6 +41,12 @@ div#predictive-search {
   background: #ffffff;
   padding: 20px;
   width: 620px;
+}
+
+@media(min-width: 1024px){
+  .banner-content{
+    bottom: 260px;
+  }
 }
 
 @media (min-width: 600px){
