@@ -29,7 +29,7 @@
                                 <td>
                                     <div class="line-qty">
                                         <div class="d-flex">
-                                            <input type="number" name="quantity" class="form-control text-center w-25" value="{{ line_item.quantity }}">
+                                            <input type="number" name="updates[]" class="form-control text-center w-25" value="{{ line_item.quantity }}">
                                         </div>
                                     </div>
                                 </td>
@@ -42,8 +42,11 @@
                         {% endfor %}
                     </tbody>
                 </table>
-                <div class="cart-footer">
-                    
+                <div class="cart-footer text-end">
+                    <div class="d-flex">
+                      <button type="submit" class="btn btn-primary">Update</button>
+                      <button type="submit" class="btn btn-secondary" name="checkout">Checkout</button>
+                    </div>
                 </div>
                 {% endform %}
             </div>
