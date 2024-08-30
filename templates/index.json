@@ -34,7 +34,7 @@
         "collection_UURW7b": {
           "type": "collection",
           "settings": {
-            "collection_title": "",
+            "collection_title": "Featured",
             "collection": "best-selling"
           }
         },
@@ -44,19 +44,11 @@
             "collection_title": "",
             "collection": "bundle-products"
           }
-        },
-        "collection_GYFUHB": {
-          "type": "collection",
-          "settings": {
-            "collection_title": "",
-            "collection": ""
-          }
         }
       },
       "block_order": [
         "collection_UURW7b",
-        "collection_hGdq4d",
-        "collection_GYFUHB"
+        "collection_hGdq4d"
       ],
       "settings": {
       }
