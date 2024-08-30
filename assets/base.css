@@ -56,6 +56,12 @@ div#predictive-search {
   }
 }
 
+@media(max-width: 1024px){
+  .banner-content{
+    bottom: 200px;
+  }
+}
+
 /* Mega-menu */
 
 .mega-submenu {
