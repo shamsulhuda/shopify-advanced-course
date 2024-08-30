@@ -24,8 +24,7 @@
                                           <a href="{{ line_item.url }}">{{ line_item.product.title }}</a>
                                           {% unless line_item.properties == empty %}
                                             {% for property in line_item.properties %}
-                                              {{ property.first }}:
-                                        
+                                              {{ property.first }}:                                        
                                               {% if property.last contains '/uploads/' %}
                                                 <a href="{{ property.last }}">{{ property.last | split: '/' | last }}</a>
                                               {% else %}
@@ -48,7 +47,10 @@
                                 </td>
                                 <td>
                                     <div class="total-line-price">
+                                      <div class="d-flex">
                                         <span class="price">{{ line_item.original_line_price | money }}</span>
+                                        <a href="{{ item.url_to_remove }}" class="ml-3">Remove</a>
+                                      </div>
                                     </div>
                                 </td>
                             </tr>
