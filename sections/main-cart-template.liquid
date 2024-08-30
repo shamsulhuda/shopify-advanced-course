@@ -20,7 +20,20 @@
                                         <div class="item-image pe-2">
                                             {{ line_item.image |  image_url: width: 100 |  image_tag }}
                                         </div>
-                                        <a href="{{ line_item.url }}">{{ line_item.product.title }}</a>
+                                        <div class="info">
+                                          <a href="{{ line_item.url }}">{{ line_item.product.title }}</a>
+                                          {% unless item.properties == empty %}
+                                            {% for property in item.properties %}
+                                              {{ property.first }}:
+                                        
+                                              {% if property.last contains '/uploads/' %}
+                                                <a href="{{ property.last }}">{{ property.last | split: '/' | last }}</a>
+                                              {% else %}
+                                                {{ property.last }}
+                                              {% endif %}
+                                            {% endfor %}
+                                          {% endunless %}
+                                        </div>
                                     </div>
                                 </td>
                                 <td>
