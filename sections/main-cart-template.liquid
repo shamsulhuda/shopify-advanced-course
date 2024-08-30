@@ -59,7 +59,8 @@
                 </table>
                 <div class="cart-footer text-end">
                     <div class="cart-summary">
-                        <span class="subtotal-text h3">Subtotal: {{ cart.items_subtotal_price | money_with_currency }}</span>
+                        <span class="subtotal h4">Subtotal: {{ cart.items_subtotal_price | money_with_currency }}</span>
+                        <span class="total h3">Subtotal: {{ cart.total_price | money_with_currency }}</span>
                     </div>
                     <div class="d-flex justify-content-end">
                       <button type="submit" class="btn btn-primary mx-3">Update</button>
