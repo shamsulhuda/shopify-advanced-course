@@ -21,7 +21,7 @@
       "type": "header",
       "settings": {
         "menu": "main-menu",
-        "mega_menu": false
+        "mega_menu": true
       }
     }
   },
